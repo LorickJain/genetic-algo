@@ -54,9 +54,9 @@ valid_X = X_train[2000:2217, :]
 valid_Y = Y_train[2000:2217]
 
 def random_generator():
-    for x in range(1000):
+    for x in range(100):
         neurons = random.randint(1,100)
-        hidden_layers = random.randint(1, 10)
+        hidden_layers = random.randint(1,10)
         i = random.randint(0,4)
         string = "model.add(Dense(units=" + str(neurons) + ",activation='relu'))"
         activation = optimizers[i]
@@ -66,7 +66,7 @@ def random_generator():
     print("Writing to CSV")
     result1 = pd.DataFrame(output, columns=['actual_layers', 'layers', 'neurons', 'optimizers', 'learning rate', 'accuracy'])
     #result1.loc[:, 'Test Images'] = pd.Series(test_id, index=result1.index)
-    result1.to_csv('hyperparameters.csv', index=False)
+    result1.to_csv('hyperparameters_random.csv', index=False)
     print("Completed")
 
 
